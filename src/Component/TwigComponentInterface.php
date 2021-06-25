@@ -4,13 +4,14 @@ namespace Jascha030\Sequoia\Component;
 
 /**
  * Class TwigComponent
- * @package SocialBrothers\Vrumona\SSO\Templating\Component
+ * @package Jascha030\Sequoia\Templating\Component
  */
 interface TwigComponentInterface
 {
     public function getContext(): array;
 
     /**
+     * Set the context to be used when rendering the twig component.
      * @param array $context
      */
     public function setContext(array $context = []): void;
