@@ -3,14 +3,12 @@
 namespace Jascha030\Sequoia\Traits;
 
 /**
- * Trait HasDefaultContext
+ * Trait HasDefaultContext.
  */
-trait HasDefaultContext
+trait HasDefaultContextTrait
 {
     /**
      * Final function defines that component has default values.
-     *
-     * @return bool
      */
     final public function hasDefaults(): bool
     {
@@ -19,8 +17,6 @@ trait HasDefaultContext
 
     /**
      * Enforce setting default values.
-     *
-     * @return array
      */
     abstract public function getDefaults(): array;
 }
