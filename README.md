@@ -6,7 +6,7 @@ A Cheeky Component library for PHP, using the Twig templating language library a
 ## Prerequisites
 
 * Php `^7.4 || ^8.0`
-* Composer `^1.0 || ^2.0`
+* Composer `^2.0`
 
 ## Installation
 
