@@ -1,0 +1,25 @@
+{
+    "name": "jascha030/wp-twig-components",
+    "description": "Static HTML Component library using OOP Php in conjunction with the Twig templating language",
+    "require": {
+        "twig/twig": "^3.3",
+        "symfony/finder": "^5.3",
+        "php": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jascha030",
+            "email": "contact@jaschavanaalst.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "scripts": {
+        "format": "./vendor/bin/php-cs-fixer fix src",
+        "phpunit": "./vendor/bin/phpunit"
+    }
+}
