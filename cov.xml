@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1624646327">
+  <project timestamp="1624646327">
+    <file name="/Users/jascha030/.development/Projects/Composer/wp-twig-components/src/Component/TwigComponentAbstract.php">
+      <class name="Jascha030\Sequoia\Component\TwigComponentAbstract" namespace="global">
+        <metrics complexity="12" methods="10" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="20" elements="32" coveredelements="28"/>
+      </class>
+      <line num="23" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <line num="36" type="method" name="create" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <line num="39" type="stmt" count="2"/>
+      <line num="41" type="stmt" count="2"/>
+      <line num="54" type="method" name="render" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="56" type="stmt" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="62" type="method" name="getContext" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="64" type="stmt" count="5"/>
+      <line num="70" type="method" name="setContext" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="72" type="stmt" count="3"/>
+      <line num="73" type="stmt" count="3"/>
+      <line num="78" type="method" name="renderContent" visibility="public" complexity="2" crap="2.02" count="2"/>
+      <line num="80" type="stmt" count="2"/>
+      <line num="81" type="stmt" count="2"/>
+      <line num="82" type="stmt" count="2"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="2"/>
+      <line num="86" type="stmt" count="2"/>
+      <line num="91" type="method" name="getFilteredContext" visibility="public" complexity="2" crap="2.15" count="1"/>
+      <line num="93" type="stmt" count="1"/>
+      <line num="94" type="stmt" count="1"/>
+      <line num="97" type="stmt" count="0"/>
+      <line num="103" type="method" name="hasDefaults" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="105" type="stmt" count="1"/>
+      <line num="116" type="method" name="getTemplateSlug" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="124" type="method" name="getDefaults" visibility="protected" complexity="1" crap="1" count="5"/>
+      <line num="126" type="stmt" count="5"/>
+      <metrics loc="128" ncloc="76" classes="1" methods="10" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="20" elements="32" coveredelements="28"/>
+    </file>
+    <file name="/Users/jascha030/.development/Projects/Composer/wp-twig-components/src/Component/TwigComponentInterface.php">
+      <metrics loc="55" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/jascha030/.development/Projects/Composer/wp-twig-components/src/Templater/TwigTemplater.php">
+      <class name="Jascha030\Sequoia\Templater\TwigTemplater" namespace="global">
+        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+      </class>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="22" type="method" name="getEnvironment" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="30" type="method" name="render" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <metrics loc="34" ncloc="25" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/Users/jascha030/.development/Projects/Composer/wp-twig-components/src/Templater/TwigTemplaterInterface.php">
+      <metrics loc="25" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/jascha030/.development/Projects/Composer/wp-twig-components/src/Traits/HasDefaultContext.php">
+      <class name="Jascha030\Sequoia\Traits\HasDefaultContext" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="15" type="method" name="hasDefaults" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <metrics loc="26" ncloc="13" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+    </file>
+    <metrics files="5" loc="268" ncloc="146" classes="3" methods="14" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="24" elements="41" coveredelements="35"/>
+  </project>
+</coverage>

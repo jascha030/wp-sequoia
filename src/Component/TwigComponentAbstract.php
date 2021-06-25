@@ -1,6 +1,9 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace Jascha030\Sequoia\Component;
+
+use Jascha030\Sequoia\Templater\TwigTemplater;
+use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
 
 /**
  * Class TwigComponent.
@@ -8,16 +11,16 @@ namespace Jascha030\Sequoia\Component;
 abstract class TwigComponentAbstract implements TwigComponentInterface
 {
     /**
-     * @var \Jascha030\Sequoia\Component\TwigTemplater
+     * @var \Jascha030\Sequoia\Templater\TwigTemplaterInterface
      */
-    private TwigTemplater $templater;
+    private TwigTemplaterInterface $templater;
 
     private array $context;
 
     /**
      * Private constructor, enforces usage of static::create() method.
      */
-    private function __construct(TwigTemplater $twigTemplater)
+    private function __construct(TwigTemplaterInterface $twigTemplater)
     {
         $this->templater = $twigTemplater;
     }
@@ -25,13 +28,14 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     /**
      * Create an instance.
      *
-     * @param array $context
+     * @param \Jascha030\Sequoia\Templater\TwigTemplaterInterface $templater
+     * @param array                                               $context
      *
      * @return \Jascha030\Sequoia\Component\TwigComponentInterface
      */
-    final public static function create(array $context = []): TwigComponentInterface
+    final public static function create(TwigTemplaterInterface $templater, array $context = []): TwigComponentInterface
     {
-        $template = new static(Container::getInstance()->get(TwigTemplater::class));
+        $template = new static($templater);
         $template->setContext($context);
 
         return $template;
@@ -47,9 +51,9 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    final public static function render(array $context = []): void
+    final public static function render(TwigTemplaterInterface $templater, array $context = []): void
     {
-        static::create($context)->renderContent();
+        static::create($templater, $context)->renderContent();
     }
 
     /**
@@ -107,10 +111,18 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     abstract public function getTemplate(): string;
 
     /**
-     * Defaults to the template name without ".twig" appendix.
+     * @inheritDoc
      */
-    protected function getTemplateSlug(): string
+    public function getTemplateSlug(): string
     {
         return str_replace('.twig', '', $this->getTemplate());
+    }
+
+    /**
+     * @return array
+     */
+    protected function getDefaults(): array
+    {
+        return [];
     }
 }

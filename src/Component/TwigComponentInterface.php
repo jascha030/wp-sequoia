@@ -44,6 +44,11 @@ interface TwigComponentInterface
     public function getTemplate(): string;
 
     /**
+     * Defaults to the template name without ".twig" appendix.
+     */
+    public function getTemplateSlug(): string;
+
+    /**
      * Return true or false based on whether the component has default values.
      */
     public function hasDefaults(): bool;
