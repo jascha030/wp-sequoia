@@ -2,8 +2,8 @@
 
 namespace Jascha030\Tests\Sequoia\Templater;
 
-use Jascha030\Sequoia\Templater\TwigTemplater;
 use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
+use Jascha030\Sequoia\Templater\TwigTemplater;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;

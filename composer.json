@@ -15,7 +15,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Jascha030\\Tests\\Sequoia": "tests"
+            "Jascha030\\Tests\\Sequoia\\": "tests"
         }
     },
     "require": {
