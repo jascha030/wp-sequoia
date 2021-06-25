@@ -9,8 +9,6 @@ interface TwigComponentInterface
 {
     /**
      * Get the template context.
-     *
-     * @return array
      */
     public function getContext(): array;
 

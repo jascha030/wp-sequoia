@@ -1,8 +1,7 @@
-<?php /** @noinspection ALL */
+<?php
 
 namespace Jascha030\Sequoia\Component;
 
-use Jascha030\Sequoia\Templater\TwigTemplater;
 use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
 
 /**
@@ -10,9 +9,6 @@ use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
  */
 abstract class TwigComponentAbstract implements TwigComponentInterface
 {
-    /**
-     * @var \Jascha030\Sequoia\Templater\TwigTemplaterInterface
-     */
     private TwigTemplaterInterface $templater;
 
     private array $context;
@@ -28,9 +24,6 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     /**
      * Create an instance.
      *
-     * @param \Jascha030\Sequoia\Templater\TwigTemplaterInterface $templater
-     * @param array                                               $context
-     *
      * @return \Jascha030\Sequoia\Component\TwigComponentInterface
      */
     final public static function create(TwigTemplaterInterface $templater, array $context = []): TwigComponentInterface
@@ -45,8 +38,6 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
      * Static method to render the component.
      * Creates an instance and calls it's $component->render($context) method.
      *
-     * @param array $context
-     *
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
@@ -57,7 +48,7 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     final public function getContext(): array
     {
@@ -65,7 +56,7 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     final public function setContext(array $context = []): void
     {
@@ -73,32 +64,32 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     final public function renderContent(bool $applyFilters = false): void
     {
         echo $this->templater->render(
-                $this->getTemplate(),
-                $applyFilters
+            $this->getTemplate(),
+            $applyFilters
                     ? $this->getFilteredContext()
                     : $this->getContext()
-            );
+        );
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     final public function getFilteredContext(): array
     {
-        if (! function_exists('apply_filters')) {
+        if (!\function_exists('apply_filters')) {
             return $this->getContext();
         }
 
-        return \apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
+        return apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function hasDefaults(): bool
     {
@@ -106,21 +97,18 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     abstract public function getTemplate(): string;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getTemplateSlug(): string
     {
         return str_replace('.twig', '', $this->getTemplate());
     }
 
-    /**
-     * @return array
-     */
     protected function getDefaults(): array
     {
         return [];
