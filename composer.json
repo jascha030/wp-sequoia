@@ -1,5 +1,5 @@
 {
-    "name": "jascha030/wp-twig-components",
+    "name": "jascha030/wp-sequoia",
     "description": "Static HTML Component library using OOP Php in conjunction with the Twig templating language",
     "require": {
         "twig/twig": "^3.3",
@@ -7,6 +7,7 @@
         "php": "^7.4"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "^9.5",
         "friendsofphp/php-cs-fixer": "^3.0"
     },
