@@ -2,11 +2,8 @@
 
 namespace Jascha030\Sequoia\Component;
 
-use Psr\Container\ContainerInterface;
-
 /**
- * Class TwigComponent
- * @package Jascha030\Sequoia\Templating\Component
+ * Class TwigComponent.
  */
 abstract class TwigComponentAbstract implements TwigComponentInterface
 {
@@ -14,9 +11,9 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
 
     private array $context;
 
-	/**
-	 * Private constructor, enforces usage of static::create() method.
-	 */
+    /**
+     * Private constructor, enforces usage of static::create() method.
+     */
     private function __construct(TwigTemplater $twigTemplater)
     {
         $this->templater = $twigTemplater;
@@ -24,8 +21,6 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
 
     /**
      * Create an instance.
-     *
-     * @param array $context
      *
      * @return \Jascha030\Sequoia\Component\TwigComponentInterface
      */
@@ -38,8 +33,8 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     /**
-	 * Static method to render the component.
-	 * Creates an instance and calls it's $component->render($context) method.
+     * Static method to render the component.
+     * Creates an instance and calls it's $component->render($context) method.
      */
     final public static function render(array $context = []): void
     {
@@ -47,72 +42,59 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     }
 
     final public function getContext(): array
-	{
-		return array_merge($this->getDefaults(), $this->context);
-	}
+    {
+        return array_merge($this->getDefaults(), $this->context);
+    }
 
-    /**
-     * @param array $context
-     */
     final public function setContext(array $context = []): void
     {
         $this->context = $context ?? $this->getFilteredContext();
     }
 
     /**
-	 * Renders the component.
+     * Renders the component.
      */
     final public function renderContent(): void
     {
         echo $this->templater->render($this->getTemplate(), $this->context);
     }
 
-	/**
-	 * Applies filter which name is composed of twig_template_context_{template-slug}, these filters can be used to
-	 * mutate it's default values and set context trough the wp hook system.
-	 * Example:
-	 * class: LoginFormComponent,
-	 * template: 'twig-login-form.twig',
-	 * filter: twig_template_context_twig-login-form
-	 *
-	 * @return array
-	 */
+    /**
+     * Applies filter which name is composed of twig_template_context_{template-slug}, these filters can be used to
+     * mutate it's default values and set context trough the wp hook system.
+     * Example:
+     * class: LoginFormComponent,
+     * template: 'twig-login-form.twig',
+     * filter: twig_template_context_twig-login-form.
+     */
     final public function getFilteredContext(): array
-	{
-		return apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
-	}
+    {
+        return apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
+    }
 
     /**
-	 * Return the (twig) template file name (e.g. "component-name.twig")
-	 *
-     * @return string
+     * Return the (twig) template file name (e.g. "component-name.twig").
      */
     abstract public function getTemplate(): string;
 
-	/**
-	 * Return true or false based on whether the component has default values.
-	 *
-	 * @return bool
-	 */
+    /**
+     * Return true or false based on whether the component has default values.
+     */
     abstract public function hasDefaults(): bool;
 
-	/**
-	 * Defaults to the template name without ".twig" appendix.
-	 *
-	 * @return string
-	 */
+    /**
+     * Defaults to the template name without ".twig" appendix.
+     */
     protected function getTemplateSlug(): string
-	{
-		return str_replace('.twig', '', $this->getTemplate());
-	}
+    {
+        return str_replace('.twig', '', $this->getTemplate());
+    }
 
-	/**
-	 * Overwrite this if component has default values.
-	 *
-	 * @return array
-	 */
+    /**
+     * Overwrite this if component has default values.
+     */
     protected function getDefaults(): array
-	{
-		return [];
-	}
+    {
+        return [];
+    }
 }

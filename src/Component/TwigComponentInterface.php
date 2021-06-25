@@ -3,8 +3,7 @@
 namespace Jascha030\Sequoia\Component;
 
 /**
- * Class TwigComponent
- * @package Jascha030\Sequoia\Templating\Component
+ * Class TwigComponent.
  */
 interface TwigComponentInterface
 {
@@ -12,12 +11,12 @@ interface TwigComponentInterface
 
     /**
      * Set the context to be used when rendering the twig component.
-     * @param array $context
      */
     public function setContext(array $context = []): void;
 
     /**
      * Renders the component.
+     *
      * @throws \Twig\Error\SyntaxError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\LoaderError
@@ -30,20 +29,17 @@ interface TwigComponentInterface
      * Example:
      * class: LoginFormComponent,
      * template: 'twig-login-form.twig',
-     * filter: twig_template_context_twig-login-form
-     * @return array
+     * filter: twig_template_context_twig-login-form.
      */
     public function getFilteredContext(): array;
 
     /**
-     * Return the (twig) template file name (e.g. "component-name.twig")
-     * @return string
+     * Return the (twig) template file name (e.g. "component-name.twig").
      */
     public function getTemplate(): string;
 
     /**
      * Return true or false based on whether the component has default values.
-     * @return bool
      */
     public function hasDefaults(): bool;
 }

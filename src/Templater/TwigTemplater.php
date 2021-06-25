@@ -3,7 +3,7 @@
 use Twig\Environment;
 
 /**
- * Class TwigTemplater
+ * Class TwigTemplater.
  */
 class TwigTemplater implements TwigTemplaterInterface
 {
@@ -15,7 +15,7 @@ class TwigTemplater implements TwigTemplaterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getEnvironment(): Environment
     {
@@ -23,7 +23,7 @@ class TwigTemplater implements TwigTemplaterInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function render(string $template, array $context = []): string
     {

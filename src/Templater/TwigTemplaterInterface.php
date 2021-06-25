@@ -3,14 +3,12 @@
 use Twig\Environment;
 
 /**
- * Interface TwigTemplaterInterface
+ * Interface TwigTemplaterInterface.
  */
 interface TwigTemplaterInterface
 {
     /**
      * Ensure a twig environment is available for rendering.
-     *
-     * @return \Twig\Environment
      */
     public function getEnvironment(): Environment;
 
