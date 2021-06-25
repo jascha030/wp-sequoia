@@ -5,7 +5,7 @@ namespace Jascha030\Sequoia\Traits;
 /**
  * Trait HasDefaultContext.
  */
-trait HasDefaultContext
+trait HasDefaultContextTrait
 {
     /**
      * Final function defines that component has default values.
