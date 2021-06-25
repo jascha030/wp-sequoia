@@ -1,6 +1,23 @@
 {
     "name": "jascha030/wp-sequoia",
     "description": "Static HTML Component library using OOP Php in conjunction with the Twig templating language",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jascha030",
+            "email": "contact@jaschavanaalst.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jascha030\\Sequoia\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jascha030\\Tests\\Sequoia": "tests"
+        }
+    },
     "require": {
         "twig/twig": "^3.3",
         "symfony/finder": "^5.3",
@@ -11,13 +28,6 @@
         "phpunit/phpunit": "^9.5",
         "friendsofphp/php-cs-fixer": "^3.0"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Jascha030",
-            "email": "contact@jaschavanaalst.nl"
-        }
-    ],
     "minimum-stability": "stable",
     "scripts": {
         "format": "./vendor/bin/php-cs-fixer fix --allow-risky=yes src",
