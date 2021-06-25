@@ -8,8 +8,15 @@ use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+/**
+ * Class TwigTemplaterTest
+ * @package Jascha030\Tests\Sequoia\Templater
+ */
 final class TwigTemplaterTest extends TestCase
 {
+    /**
+     * @return \Jascha030\Sequoia\Templater\TwigTemplaterInterface
+     */
     public function testConstructor(): TwigTemplaterInterface
     {
         $loader      = new FilesystemLoader(dirname(__DIR__) . '/Fixtures/Templates');
@@ -51,6 +58,6 @@ final class TwigTemplaterTest extends TestCase
             ]
         );
 
-        self::assertEquals('<p>hello world!</p>', $output);
+        self::assertEquals('<p>hello world!</p>' . PHP_EOL, $output);
     }
 }
