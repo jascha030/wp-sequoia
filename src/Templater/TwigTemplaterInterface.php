@@ -1,5 +1,7 @@
 <?php
 
+namespace Jascha030\Sequoia\Templater;
+
 use Twig\Environment;
 
 /**

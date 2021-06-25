@@ -7,6 +7,11 @@ namespace Jascha030\Sequoia\Component;
  */
 interface TwigComponentInterface
 {
+    /**
+     * Get the template context.
+     *
+     * @return array
+     */
     public function getContext(): array;
 
     /**

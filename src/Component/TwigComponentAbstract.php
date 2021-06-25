@@ -7,6 +7,9 @@ namespace Jascha030\Sequoia\Component;
  */
 abstract class TwigComponentAbstract implements TwigComponentInterface
 {
+    /**
+     * @var \Jascha030\Sequoia\Component\TwigTemplater
+     */
     private TwigTemplater $templater;
 
     private array $context;
@@ -22,6 +25,8 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     /**
      * Create an instance.
      *
+     * @param array $context
+     *
      * @return \Jascha030\Sequoia\Component\TwigComponentInterface
      */
     final public static function create(array $context = []): TwigComponentInterface
@@ -35,52 +40,71 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     /**
      * Static method to render the component.
      * Creates an instance and calls it's $component->render($context) method.
+     *
+     * @param array $context
+     *
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     final public static function render(array $context = []): void
     {
         static::create($context)->renderContent();
     }
 
+    /**
+     * @inheritDoc
+     */
     final public function getContext(): array
     {
         return array_merge($this->getDefaults(), $this->context);
     }
 
+    /**
+     * @inheritDoc
+     */
     final public function setContext(array $context = []): void
     {
         $this->context = $context ?? $this->getFilteredContext();
     }
 
     /**
-     * Renders the component.
+     * @inheritDoc
      */
-    final public function renderContent(): void
+    final public function renderContent(bool $applyFilters = false): void
     {
-        echo $this->templater->render($this->getTemplate(), $this->context);
+        echo $this->templater->render(
+                $this->getTemplate(),
+                $applyFilters
+                    ? $this->getFilteredContext()
+                    : $this->getContext()
+            );
     }
 
     /**
-     * Applies filter which name is composed of twig_template_context_{template-slug}, these filters can be used to
-     * mutate it's default values and set context trough the wp hook system.
-     * Example:
-     * class: LoginFormComponent,
-     * template: 'twig-login-form.twig',
-     * filter: twig_template_context_twig-login-form.
+     * @inheritDoc
      */
     final public function getFilteredContext(): array
     {
-        return apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
+        if (! function_exists('apply_filters')) {
+            return $this->getContext();
+        }
+
+        return \apply_filters("twig_template_context_{$this->getTemplateSlug()}", $this->getContext());
     }
 
     /**
-     * Return the (twig) template file name (e.g. "component-name.twig").
+     * @inheritDoc
      */
-    abstract public function getTemplate(): string;
+    public function hasDefaults(): bool
+    {
+        return false;
+    }
 
     /**
-     * Return true or false based on whether the component has default values.
+     * @inheritDoc
      */
-    abstract public function hasDefaults(): bool;
+    abstract public function getTemplate(): string;
 
     /**
      * Defaults to the template name without ".twig" appendix.
@@ -88,13 +112,5 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
     protected function getTemplateSlug(): string
     {
         return str_replace('.twig', '', $this->getTemplate());
-    }
-
-    /**
-     * Overwrite this if component has default values.
-     */
-    protected function getDefaults(): array
-    {
-        return [];
     }
 }
