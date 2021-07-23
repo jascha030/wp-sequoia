@@ -52,7 +52,7 @@ Let’s say you have a template in your templates folder called `list-template.t
     {% for item in items %}
         <li>{{ item.text }}</li>     
     {% endfor %}
-<u>
+</ul>
 ```
 
 Now you can extend the `TwigComponentAbstract`.
@@ -169,7 +169,7 @@ Now you would hypothetically have added a third list item and the output of the 
     <li>List item 1</li>
     <li>List item 2</li>
     <li>List item 3</li>
-<u>
+</ul>
 
 ```
 
