@@ -2,7 +2,6 @@
 
 namespace Jascha030\Tests\Sequoia\Component;
 
-use Jascha030\Sequoia\Component\TwigComponentAbstract;
 use Jascha030\Sequoia\Component\TwigComponentInterface;
 use Jascha030\Sequoia\Templater\TwigTemplater;
 use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
@@ -12,8 +11,9 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 /**
- * Class TwigComponentAbstractTest
- * @package Jascha030\Tests\Sequoia\Component
+ * Class TwigComponentAbstractTest.
+ *
+ * @internal
  */
 class TwigComponentAbstractTest extends TestCase
 {
@@ -60,6 +60,7 @@ class TwigComponentAbstractTest extends TestCase
 
     /**
      * @depends testCreate
+     *
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      * @throws \Twig\Error\LoaderError
@@ -114,7 +115,7 @@ class TwigComponentAbstractTest extends TestCase
 
     private function getTemplater(): TwigTemplaterInterface
     {
-        $loader = new FilesystemLoader(dirname(__DIR__) . '/Fixtures/Templates');
+        $loader      = new FilesystemLoader(\dirname(__DIR__).'/Fixtures/Templates');
         $environment = new Environment($loader);
 
         return new TwigTemplater($environment);
@@ -127,6 +128,6 @@ class TwigComponentAbstractTest extends TestCase
 
     private function getDesiredOutput(): string
     {
-        return '<p>hello world!</p>' . PHP_EOL;
+        return '<p>hello world!</p>'.\PHP_EOL;
     }
 }

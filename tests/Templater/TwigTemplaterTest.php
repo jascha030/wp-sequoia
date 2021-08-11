@@ -2,24 +2,22 @@
 
 namespace Jascha030\Tests\Sequoia\Templater;
 
-use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
 use Jascha030\Sequoia\Templater\TwigTemplater;
+use Jascha030\Sequoia\Templater\TwigTemplaterInterface;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 /**
- * Class TwigTemplaterTest
- * @package Jascha030\Tests\Sequoia\Templater
+ * Class TwigTemplaterTest.
+ *
+ * @internal
  */
 final class TwigTemplaterTest extends TestCase
 {
-    /**
-     * @return \Jascha030\Sequoia\Templater\TwigTemplaterInterface
-     */
     public function testConstructor(): TwigTemplaterInterface
     {
-        $loader      = new FilesystemLoader(dirname(__DIR__) . '/Fixtures/Templates');
+        $loader      = new FilesystemLoader(\dirname(__DIR__).'/Fixtures/Templates');
         $environment = new Environment($loader);
 
         $templater = new TwigTemplater($environment);
@@ -31,8 +29,6 @@ final class TwigTemplaterTest extends TestCase
     /**
      * @noinspection UnnecessaryAssertionInspection
      * @depends      testConstructor
-     *
-     * @param \Jascha030\Sequoia\Templater\TwigTemplaterInterface $templater
      */
     public function testGetEnvironment(TwigTemplaterInterface $templater): void
     {
@@ -41,8 +37,6 @@ final class TwigTemplaterTest extends TestCase
 
     /**
      * @depends testConstructor
-     *
-     * @param \Jascha030\Sequoia\Templater\TwigTemplaterInterface $templater
      *
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
@@ -54,10 +48,10 @@ final class TwigTemplaterTest extends TestCase
             'test-hello-world.twig',
             [
                 'greeting' => 'hello',
-                'location' => 'world'
+                'location' => 'world',
             ]
         );
 
-        self::assertEquals('<p>hello world!</p>' . PHP_EOL, $output);
+        self::assertEquals('<p>hello world!</p>'.\PHP_EOL, $output);
     }
 }
