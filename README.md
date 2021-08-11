@@ -179,7 +179,7 @@ Now you would hypothetically have added a third list item and the output of the 
 To check wether your implementation is allright or if there is something wrong with the library while extending it. you can use:
 
 ```shell
-$ composer run phpunit
+composer run phpunit
 ```
 
 > Make sure to install with dev dependencies by using `composer install` instead of `composer install —no-dev`.
