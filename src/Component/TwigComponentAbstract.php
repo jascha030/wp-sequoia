@@ -44,7 +44,7 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
      */
     final public static function render(TwigTemplaterInterface $templater, array $context = []): void
     {
-        static::create($templater, $context)->renderContent(function_exists('apply_filters'));
+        static::create($templater, $context)->renderContent(\function_exists('apply_filters'));
     }
 
     /**

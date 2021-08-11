@@ -13,7 +13,7 @@ A Cheeky Component library for PHP, using the Twig templating language library a
 Require as dependency by either; adding it directly to your `composer.json`, or running:
 
 ```shell
-$ composer require jascha030/sequoia
+composer require jascha030/wp-sequoia
 ```
 
 _Simple as that…_
@@ -179,7 +179,7 @@ Now you would hypothetically have added a third list item and the output of the 
 To check wether your implementation is allright or if there is something wrong with the library while extending it. you can use:
 
 ```shell
-$ composer run phpunit
+composer run phpunit
 ```
 
 > Make sure to install with dev dependencies by using `composer install` instead of `composer install —no-dev`.
