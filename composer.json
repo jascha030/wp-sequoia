@@ -30,7 +30,7 @@
     },
     "minimum-stability": "stable",
     "scripts": {
-        "format": "./vendor/bin/php-cs-fixer fix --allow-risky=yes src",
+        "format": "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes",
         "phpunit": "./vendor/bin/phpunit"
     }
 }
