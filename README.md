@@ -13,7 +13,7 @@ A Cheeky Component library for PHP, using the Twig templating language library a
 Require as dependency by either; adding it directly to your `composer.json`, or running:
 
 ```shell
-$ composer require jascha030/sequoia
+composer require jascha030/wp-sequoia
 ```
 
 _Simple as that…_
