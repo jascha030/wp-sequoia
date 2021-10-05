@@ -10,7 +10,7 @@ interface TwigComponentInterface
     /**
      * Get the template context.
      */
-    public function getContext(): array;
+    public function getContext(bool $merge = true): array;
 
     /**
      * Set the context to be used when rendering the twig component.

@@ -44,15 +44,15 @@ abstract class TwigComponentAbstract implements TwigComponentInterface
      */
     final public static function render(TwigTemplaterInterface $templater, array $context = []): void
     {
-        static::create($templater, $context)->renderContent(\function_exists('apply_filters'));
+        static::create($templater, $context)->renderContent(function_exists('apply_filters'));
     }
 
     /**
      * {@inheritDoc}
      */
-    final public function getContext(): array
+    final public function getContext(bool $merge = true): array
     {
-        return array_merge($this->getDefaults(), $this->context);
+        return $merge ? array_merge($this->getDefaults(), $this->context) : $this->context;
     }
 
     /**
